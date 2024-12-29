@@ -14,13 +14,14 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // CORS configuration for Vercel
 app.use(cors({
-  origin: [
-    'https://micro-final.vercel.app',
-    'http://localhost:5173'
-  ],
+  origin: ['https://micro-final.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Add OPTIONS handling for preflight requests
+app.options('*', cors());
 
 app.use(express.json());
 
