@@ -1,7 +1,7 @@
 import { Pattern, PatternType, DifficultyLevel, GeneratePatternOptions } from '../types';
 import { generateAIHint } from '../utils/aiHelper';
 
-const API_URL = import.meta.env.VITE_API_URL.replace(/\/$/, '');
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const generatePattern = async (options: GeneratePatternOptions = {}): Promise<Pattern> => {
     try {
